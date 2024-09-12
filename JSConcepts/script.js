@@ -75,3 +75,14 @@ let changeObject = (obj, parent) => {
 }
 changeObject(user,"user");
 console.log(JSON.stringify(resObj,null,2));
+
+
+//sum()()()..upto n
+let sum = function(a){
+    return function(b){
+        return b!=undefined ? sum(a+b):a;
+    }
+}
+
+
+console.log(sum(5)(10)(1)(0)());
