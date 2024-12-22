@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server sent events</title>
+</head>
+
+<body>
+    <h2 style="background-color: antiquewhite; margin-bottom: 20px;">SSE</h2>
+    <div id="sse-data"></div>
+
+    <script>
+        const evtSource = new EventSource("/sse");
+
+        evtSource.onmessage = (event) =>{
+            console.log(event.data);
+            const div = document.querySelector('#sse-data');
+            div.innerHTML += `<p>${event.data}</p>`
+        }
+    </script>
+</body>
+
+</html>
